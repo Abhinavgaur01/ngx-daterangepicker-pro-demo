@@ -1,0 +1,36 @@
+.ngx-daterangepicker-pro {
+    display: flex;
+    // align-items: center;
+    background-color: #fff;
+    filter: drop-shadow(5px 5px 10px #bab9b9);
+    width: fit-content;
+    border-radius: 1rem;
+
+    .ngx-daterangepicker-pro-ranges {
+        border-right: 1px solid #bab9b9;
+        min-height: 100%;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+
+        .ngx-daterangepicker-pro-range-option {
+            padding: 4px 8px;
+            margin-bottom: 4px;
+            border-radius: 4px;
+            color: #555;
+            background: none;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            font-size: 14px;
+            min-width: 7.5rem;
+
+            &.active,
+            &:hover {
+                background-color: #EAF4FE;
+                color: rgb(28, 144, 244);
+            }
+        }
+    }
+}

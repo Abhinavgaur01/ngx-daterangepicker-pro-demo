@@ -1,0 +1,16 @@
+{
+  "name": "ngx-daterangepicker-pro",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^19.2.0",
+    "@angular/core": "^19.2.0",
+    "dayjs": "^1.11.13"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "dayjs": "^1.11.13"
+  },
+  "sideEffects": false
+}

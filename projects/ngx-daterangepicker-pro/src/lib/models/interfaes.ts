@@ -1,0 +1,1 @@
+export interface DateRangeModel { from: Date | null, to: Date | null }

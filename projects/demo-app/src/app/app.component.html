@@ -1,0 +1,20 @@
+<form [formGroup]="form" style="margin: 0; font-family: Arial, sans-serif;">
+    <header style="background-color: #1e3a8a; padding: 1rem; color: white; text-align: center;">
+        <h2 style="margin: 0;">Date Range Picker Demo</h2>
+        <input type="text" ngxDaterangePickerPro formControlName="range" placeholder="Select date range"
+            style="margin-top: 1rem; padding: 0.5rem; border-radius: 4px; border: none; width: 250px; font-size: 1rem;" />
+    </header>
+</form>
+
+<section style="background-color: #f3f4f6; padding: 2rem; min-height: 150px; text-align: center;">
+    <h3 style="color: #111827;">📅 Selected Range:</h3>
+    <p style="font-size: 1.25rem; color: #1f2937; margin: 0.5rem 0;">
+        {{ form.get('range')?.value?.from | date: 'dd/MM/yyyy' }}
+        &nbsp;–&nbsp;
+        {{ form.get('range')?.value?.to | date: 'dd/MM/yyyy' }}
+    </p>
+</section>
+
+<footer style="background-color: #1e293b; color: #e5e7eb; text-align: center; padding: 1rem;">
+    &copy; 2025 Demo Application. All rights reserved.
+</footer>

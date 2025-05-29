@@ -1,0 +1,80 @@
+@if (viewType() == calanderViewTypes.Days) {
+<div class="calendar">
+    <div class="header">
+        <button class="btn-arrow" (click)="prevMonth()">&lt;</button>
+        <h3 (click)="changeViewType(calanderViewTypes.Months)" class="header-title">{{ currentDate.format('MMMM YYYY')
+            }}</h3>
+        <button class="btn-arrow" (click)="nextMonth()">&gt;</button>
+    </div>
+
+    <div class="weekdays">
+        @for (day of ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']; track $index) {
+        <div class="weekday">
+            {{ day }}
+        </div>
+        }
+
+    </div>
+
+    <div class="weeks">
+        @for (week of weeks; track $index) {
+        <div class="week">
+            @for (day of week; track $index) {
+            <button class="day"
+                [ngClass]="{'active': day?.toDate() && (day?.isSame(fromDate(), 'day') || day?.isSame(toDate(), 'day')), 'in-range': (day?.isBefore(toDate()) && day?.isAfter(fromDate()))}"
+                [disabled]="day==null" (click)="onDateSelection(day?.toDate() || null)">
+                {{ day ? day.date() : '' }}
+            </button>
+            }
+        </div>
+        }
+
+    </div>
+</div>
+}
+
+<!-- months view -->
+
+@if (viewType() == calanderViewTypes.Months) {
+<div class="calendar">
+    <div class="header">
+        <button class="btn-arrow" (click)="prevMonth()">&lt;</button>
+        <h2 (click)="changeViewType(calanderViewTypes.Years)" class="header-title">{{ currentDate.format('YYYY') }}
+        </h2>
+        <button class="btn-arrow" (click)="nextMonth()">&gt;</button>
+    </div>
+
+
+    <div class="months">
+        @for (month of months; track $index) {
+        <div class="month" (click)="setMonth($index)">
+            {{month}}
+        </div>
+        }
+
+    </div>
+</div>
+}
+
+<!-- years view -->
+
+@if (viewType() == calanderViewTypes.Years) {
+<div class="calendar">
+    <div class="header">
+        <button class="btn-arrow" (click)="shiftYearRangeBackward()">&lt;</button>
+        <h2 class="header-title">{{ years()[0] }}-{{years()[years().length-1]}}
+        </h2>
+        <button class="btn-arrow" (click)="shiftYearRangeForward()">&gt;</button>
+    </div>
+
+
+    <div class="months">
+        @for (year of years(); track $index) {
+        <div class="year" (click)="onYearSelection(year)">
+            {{year}}
+        </div>
+        }
+
+    </div>
+</div>
+}

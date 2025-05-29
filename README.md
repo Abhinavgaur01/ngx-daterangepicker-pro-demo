@@ -1,59 +1,170 @@
-# MyWorkspace
+# ngx-daterangepicker-pro
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
+A powerful, customizable Angular date range picker built with Angular 17+ and Day.js.
 
-## Development server
+![npm version](https://img.shields.io/npm/v/ngx-daterangepicker-pro.svg)
+![Angular](https://img.shields.io/badge/angular-17%2B-red)
+![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
-To start a local development server, run:
+---
+
+## ✨ Features
+
+- 🔥 Clean and modern date range selection
+- 📅 Supports predefined and custom ranges
+- 🎨 Fully customizable styles
+- 🔄 Two-way binding with `FormControl` and `ngModel`
+- 🧩 Lightweight (uses [Day.js](https://day.js.org/))
+
+---
+
+## 📦 Installation
+
+Install via npm:
 
 ```bash
+npm install ngx-daterangepicker-pro dayjs
+```
+
+---
+
+## 🚀 Usage
+
+### 1. Import the Directive
+
+#### In a Module:
+
+```ts
+import { NgxDaterangePickerProDirective } from 'ngx-daterangepicker-pro';
+
+@NgModule({
+  imports: [NgxDaterangePickerProDirective]
+})
+export class AppModule {}
+```
+
+#### Or in a Standalone Component:
+
+```ts
+import { Component } from '@angular/core';
+import { NgxDaterangePickerProDirective } from 'ngx-daterangepicker-pro';
+
+@Component({
+  standalone: true,
+  selector: 'app-root',
+  imports: [NgxDaterangePickerProDirective],
+  templateUrl: './app.component.html'
+})
+export class AppComponent {}
+```
+
+---
+
+### 2. Template Usage with Reactive Forms
+
+```html
+<form [formGroup]="form">
+  <input type="text" ngxDaterangePickerPro formControlName="range" />
+</form>
+
+<p>
+  Selected Range:
+  {{ form.get('range')?.value?.from | date: 'dd/MM/yyyy' }} -
+  {{ form.get('range')?.value?.to | date: 'dd/MM/yyyy' }}
+</p>
+```
+
+---
+
+### 3. Component Code
+
+```ts
+import { Component } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { DateRangeModel } from 'ngx-daterangepicker-pro';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html'
+})
+export class AppComponent {
+  form = new FormGroup({
+    range: new FormControl<DateRangeModel>({ from: null, to: null })
+  });
+}
+```
+
+---
+
+## 🧪 Development
+
+To run the demo app locally:
+
+```bash
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Then open [http://localhost:4200](http://localhost:4200) in your browser.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🛠️ Building the Library
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+To build the library:
 
 ```bash
-ng generate --help
+ng build ngx-daterangepicker-pro
 ```
 
-## Building
+The output will be located in the `dist/ngx-daterangepicker-pro/` folder.
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## ✅ Running Unit Tests
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+To run unit tests:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 📣 Contributing
 
-```bash
-ng e2e
-```
+Contributions are welcome! Found a bug or want to suggest a feature?
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+1. Fork the repo  
+2. Create your branch:  
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Commit your changes:  
+   ```bash
+   git commit -m 'feat: add new feature'
+   ```
+4. Push to the branch:  
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+5. Open a Pull Request
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📬 Support
+
+If you encounter any issues or have questions, please [open an issue](https://github.com/your-username/ngx-daterangepicker-pro/issues).
+
+---
+
+## 📝 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 🙌 Acknowledgments
+
+- Built with [Angular](https://angular.dev)
+- Date handling via [Day.js](https://day.js.org/)

@@ -1,0 +1,13 @@
+<div class="ngx-daterangepicker-pro">
+    <div class="ngx-daterangepicker-pro-ranges">
+        @for (range of ranges; track range.label){
+        <button type="button" class="ngx-daterangepicker-pro-range-option"
+            [class.active]="range.from.isSame(selectedRange.from, 'day') && range.to.isSame(selectedRange.to, 'day')"
+            (click)="setRange(range)">{{range.label}}</button>
+        }
+        <button type="button" class="ngx-daterangepicker-pro-range-option"
+            [class.active]="defaultCustomRange.from.isSame(selectedRange.from, 'day') && defaultCustomRange.to.isSame(selectedRange.to, 'day')"
+            (click)="setRange(defaultCustomRange, false, false)">{{defaultCustomRange.label}}</button>
+    </div>
+    <lib-calendar [selectedRange]="selectedRange" (onCustomRangeSelection)="setRange($event,true)"></lib-calendar>
+</div>
