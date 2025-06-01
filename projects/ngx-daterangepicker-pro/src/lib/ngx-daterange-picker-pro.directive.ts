@@ -93,8 +93,8 @@ export class NgxDaterangePickerProDirective implements ControlValueAccessor {
   private positionCalendar() {
     const calendarEl = this.calendarRef!.location.nativeElement as HTMLElement;
     const inputRect = this.el.nativeElement.getBoundingClientRect();
-    const calendarWidth = 300; // Approximate width of the calendar (adjust if dynamic)
-    const calendarHeight = 350; // Approximate height of the calendar (adjust if dynamic)
+    const calendarWidth = 511; // Approximate width of the calendar (adjust if dynamic)
+    const calendarHeight = 352; // Approximate height of the calendar (adjust if dynamic)
     const margin = 8; // Space between input and calendar
 
     const viewportHeight = window.innerHeight;
@@ -118,8 +118,6 @@ export class NgxDaterangePickerProDirective implements ControlValueAccessor {
       top: `${top}px`,
       left: `${left}px`,
       zIndex: '1000',
-      background: '#fff',
-      border: '1px solid #ccc',
       boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
       width: `${calendarWidth}px`
     });
